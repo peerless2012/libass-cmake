@@ -1,0 +1,19 @@
+[submodule "src/png"]
+	path = src/png
+	url = https://github.com/pnggroup/libpng.git
+[submodule "src/unibreak"]
+	path = src/unibreak
+	url = https://github.com/adah1972/libunibreak.git
+	branch = libunibreak_6_1
+[submodule "src/harfbuzz"]
+	path = src/harfbuzz
+	url = https://github.com/harfbuzz/harfbuzz.git
+[submodule "src/fribidi"]
+	path = src/fribidi
+	url = https://github.com/fribidi/fribidi.git
+[submodule "src/freetype"]
+	path = src/freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype.git
+[submodule "src/ass"]
+	path = src/ass
+	url = https://github.com/libass/libass.git
