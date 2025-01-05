@@ -15,6 +15,13 @@ Build libass for Android.
 ### clone and init
 `git clone --recurse-submodules https://github.com/peerless2012/libass-cmake.git ./src/main/cpp`
 
+### autogen
+```
+cd ./src/unibreak && ./autogen.sh
+cd ./src/fribidi && ./autogen.sh
+cd ./src/ass && ./autogen.sh
+```
+
 ### add ass cmake to CMakeList.txt 
 ```
 cmake_minimum_required(VERSION 3.22.1)
