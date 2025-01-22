@@ -15,6 +15,10 @@ Build libass for Android.
 ### clone and init
 `git clone --recurse-submodules https://github.com/peerless2012/libass-cmake.git ./src/main/cpp`
 
+### prepare
+* make sure you have `libtool`
+* make sure you hav `perl`
+
 ### autogen
 ```
 cd ./src/unibreak && ./autogen.sh

@@ -17,6 +17,7 @@ ExternalProject_Add(ep_ass
             ${PLATFORM_BUILD_AND_HOST} ${CONFIGURE_VERBOSE_ARG}
             --prefix=${CMAKE_BINARY_DIR} --enable-shared=false --enable-static=yes
             --disable-dependency-tracking --disable-require-system-font-provider
+            --disable-fontconfig
             --srcdir=<SOURCE_DIR>/<SOURCE_SUBDIR>
         BUILD_COMMAND ${MAKE_EXECUTABLE} ${MAKE_JFLAG}
 )
