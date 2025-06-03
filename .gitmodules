@@ -17,3 +17,9 @@
 [submodule "src/ass"]
 	path = src/ass
 	url = https://github.com/libass/libass.git
+[submodule "src/fontconfig"]
+	path = src/fontconfig
+	url = https://gitlab.freedesktop.org/fontconfig/fontconfig
+[submodule "src/expat"]
+	path = src/expat
+	url = https://github.com/libexpat/libexpat.git
