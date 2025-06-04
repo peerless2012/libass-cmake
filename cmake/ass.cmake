@@ -6,18 +6,17 @@ ExternalProject_Add(ep_ass
         INSTALL_DIR ${CMAKE_BINARY_DIR}
         CONFIGURE_COMMAND
             PKG_CONFIG_PATH=${CMAKE_BINARY_DIR}/lib/pkgconfig
-            FREETYPE_CFLAGS=-I${CMAKE_BINARY_DIR}/include/freetype2  FREETYPE_LIBS=-L${CMAKE_BINARY_DIR}/lib
-            FRIBIDI_CFLAGS=-I${CMAKE_BINARY_DIR}/include/fribidi  FRIBIDI_LIBS=-L${CMAKE_BINARY_DIR}/lib/libfribidi.a
-            HARFBUZZ_CFLAGS=-I${CMAKE_BINARY_DIR}/include/harfbuzz  HARFBUZZ_LIBS=-L${CMAKE_BINARY_DIR}/lib/libharfbuzz.a
-            LIBUNIBREAK_CFLAGS=-I${CMAKE_BINARY_DIR}/include  LIBUNIBREAK_LIBS=-L${CMAKE_BINARY_DIR}/libunibreak.a
-            LIBPNG_CFLAGS=-I${CMAKE_BINARY_DIR}/include/libpng16  LIBPNG_LIBS=-L${CMAKE_BINARY_DIR}/lib/libpng.a
+            FREETYPE_CFLAGS=-I${CMAKE_BINARY_DIR}/include/freetype2 FREETYPE_LIBS=-L${CMAKE_BINARY_DIR}/lib
+            FRIBIDI_CFLAGS=-I${CMAKE_BINARY_DIR}/include/fribidi FRIBIDI_LIBS=-L${CMAKE_BINARY_DIR}/lib
+            HARFBUZZ_CFLAGS=-I${CMAKE_BINARY_DIR}/include/harfbuzz HARFBUZZ_LIBS=-L${CMAKE_BINARY_DIR}/lib
+            LIBUNIBREAK_CFLAGS=-I${CMAKE_BINARY_DIR}/include LIBUNIBREAK_LIBS=-L${CMAKE_BINARY_DIR}/lib
+            LIBPNG_CFLAGS=-I${CMAKE_BINARY_DIR}/include/libpng16 LIBPNG_LIBS=-L${CMAKE_BINARY_DIR}/lib
         CONFIGURE_COMMAND
             ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
             <SOURCE_DIR>/<SOURCE_SUBDIR>/configure
             ${PLATFORM_BUILD_AND_HOST} ${CONFIGURE_VERBOSE_ARG}
             --prefix=${CMAKE_BINARY_DIR} --enable-shared=false --enable-static=yes
             --enable-fontconfig
-            --disable-dependency-tracking --disable-require-system-font-provider
             --srcdir=<SOURCE_DIR>/<SOURCE_SUBDIR>
         BUILD_COMMAND ${MAKE_EXECUTABLE} ${MAKE_JFLAG}
 )
