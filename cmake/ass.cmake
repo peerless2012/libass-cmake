@@ -8,9 +8,9 @@ ExternalProject_Add(ep_ass
         ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
         <SOURCE_DIR>/<SOURCE_SUBDIR>/configure
         ${PLATFORM_BUILD_AND_HOST} ${CONFIGURE_VERBOSE_ARG}
-        --prefix=${CMAKE_BINARY_DIR}
-        --enable-shared=false
-        --enable-static=yes
+        --prefix=<INSTALL_DIR>
+        --enable-static
+        --disable-shared
         --enable-fontconfig
         --srcdir=<SOURCE_DIR>/<SOURCE_SUBDIR>
     BUILD_COMMAND ${MAKE_EXECUTABLE} ${MAKE_JFLAG}
