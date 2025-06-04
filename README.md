@@ -8,6 +8,8 @@ Build libass for Android.
 * [harfbuzz](https://github.com/harfbuzz/harfbuzz) [v10.1.0](https://github.com/harfbuzz/harfbuzz/releases/tag/10.1.0)
 * [fribidi](https://github.com/fribidi/fribidi) [v1.0.16](https://github.com/fribidi/fribidi/releases/tag/v1.0.16)
 * [freetype](https://gitlab.freedesktop.org/freetype/freetype) [v2.13.3](https://gitlab.freedesktop.org/freetype/freetype/-/tags/VER-2-13-3)
+* [expat](https://github.com/libexpat/libexpat) [2.7.1](https://github.com/libexpat/libexpat/releases/tag/R_2_7_1)
+* [fontconfig](https://gitlab.freedesktop.org/fontconfig/fontconfig) [master with #418](https://gitlab.freedesktop.org/fontconfig/fontconfig/-/merge_requests/418)
 * [ass](https://github.com/libass/libass) [v0.17.3](https://github.com/libass/libass/releases/tag/0.17.3)
 
 ## how to use
@@ -18,11 +20,14 @@ Build libass for Android.
 ### prepare
 * make sure you have `libtool`
 * make sure you hav `perl`
+* install `autopoint`
+* install `ninja-build`
 
 ### autogen
 ```
 cd ./src/unibreak && ./autogen.sh
 cd ./src/fribidi && ./autogen.sh
+cd ./src/fontconfig && ./autogen.sh
 cd ./src/ass && ./autogen.sh
 ```
 
