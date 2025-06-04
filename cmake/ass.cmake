@@ -8,11 +8,11 @@ ExternalProject_Add(ep_ass
         ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
         <SOURCE_DIR>/<SOURCE_SUBDIR>/configure
         ${PLATFORM_BUILD_AND_HOST} ${CONFIGURE_VERBOSE_ARG}
-        --prefix=${CMAKE_BINARY_DIR}
-        --enable-shared=false
-        --enable-static=yes
-        --enable-libunibreak
+        --prefix=<INSTALL_DIR>
+        --enable-static
+        --disable-shared
         --enable-fontconfig
+        --enable-libunibreak
         --srcdir=<SOURCE_DIR>/<SOURCE_SUBDIR>
     BUILD_COMMAND make
     INSTALL_COMMAND make install
