@@ -7,10 +7,8 @@ ExternalProject_Add(ep_fontconfig
         ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
         <SOURCE_DIR>/<SOURCE_SUBDIR>/configure ${PLATFORM_BUILD_AND_HOST}
         --prefix=<INSTALL_DIR>
-        --enable-static --disable-shared
-        --with-expat-includes=${CMAKE_BINARY_DIR}/include
-        --with-expat-lib=${CMAKE_BINARY_DIR}/lib
-        --with-freetype-config=${CMAKE_BINARY_DIR}/bin/freetype-config
+        --enable-static
+        --disable-shared
     BUILD_COMMAND make
     INSTALL_COMMAND make install
 )
