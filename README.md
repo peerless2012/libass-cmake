@@ -3,7 +3,6 @@
 Build libass for Android.
 
 ## library version
-* [png](https://github.com/pnggroup/libpng) [v1.6.44](https://github.com/pnggroup/libpng/releases/tag/v1.6.44)
 * [unibreak](https://github.com/adah1972/libunibreak) [v6.1](https://github.com/adah1972/libunibreak/releases/tag/libunibreak_6_1)
 * [harfbuzz](https://github.com/harfbuzz/harfbuzz) [v10.1.0](https://github.com/harfbuzz/harfbuzz/releases/tag/10.1.0)
 * [fribidi](https://github.com/fribidi/fribidi) [v1.0.16](https://github.com/fribidi/fribidi/releases/tag/v1.0.16)
