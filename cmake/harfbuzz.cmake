@@ -1,5 +1,5 @@
 ExternalProject_Add(ep_harfbuzz
-        DEPENDS ep_freetype ep_png
+        DEPENDS ep_freetype
         SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}
         SOURCE_SUBDIR "src/harfbuzz"
         INSTALL_DIR ${CMAKE_BINARY_DIR}
