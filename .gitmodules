@@ -1,6 +1,3 @@
-[submodule "src/png"]
-	path = src/png
-	url = https://github.com/pnggroup/libpng.git
 [submodule "src/unibreak"]
 	path = src/unibreak
 	url = https://github.com/adah1972/libunibreak.git

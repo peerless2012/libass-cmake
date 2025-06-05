@@ -80,7 +80,6 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/cmake/files/meson-cross-android.in)
     unset(MESON_SYSTEM_CPU_FAMILY)
 endif()
 
-#include(cmake/png.cmake)
 include(cmake/unibreak.cmake)
 include(cmake/fribidi.cmake)
 include(cmake/freetype.cmake)
