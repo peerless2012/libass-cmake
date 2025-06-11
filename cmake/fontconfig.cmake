@@ -4,7 +4,6 @@ ExternalProject_Add(ep_fontconfig
         SOURCE_SUBDIR "src/fontconfig"
         INSTALL_DIR ${CMAKE_BINARY_DIR}
         CONFIGURE_COMMAND
-        PKG_CONFIG_PATH=${CMAKE_BINARY_DIR}/lib/pkgconfig
         ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
         <SOURCE_DIR>/<SOURCE_SUBDIR>/configure ${PLATFORM_BUILD_AND_HOST}
         --prefix=<INSTALL_DIR>
