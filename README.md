@@ -27,6 +27,7 @@ Build libass for Android.
 cd ./src/unibreak && ./autogen.sh
 cd ./src/fribidi && ./autogen.sh
 cd ./src/fontconfig && ./autogen.sh
+cd ./src/expat/expat && ./buildconf.sh
 cd ./src/ass && ./autogen.sh
 ```
 
