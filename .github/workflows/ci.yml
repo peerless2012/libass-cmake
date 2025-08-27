@@ -1,0 +1,63 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  run-tests:
+    name: "Test (${{ matrix.ANDROID_ABI }})"
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ANDROID_ABI: ["armeabi-v7a", "arm64-v8a", "x86", "x86_64"]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Install dependencies
+      run: sudo apt install gperf gettext autopoint
+  
+    - name: Running autogen.sh in unibreak
+      working-directory: src/unibreak
+      run: NOCONFIGURE=1 ./autogen.sh
+
+    - name: Running autogen.sh in fribidi
+      working-directory: src/fribidi
+      run: NOCONFIGURE=1 ./autogen.sh
+
+    - name: Running autogen.sh in fontconfig
+      working-directory: src/fontconfig
+      run: NOCONFIGURE=1 ./autogen.sh
+
+    - name: Running autogen.sh in ass
+      working-directory: src/ass
+      run: ./autogen.sh
+
+    - name: Running buildconf.sh in expat
+      working-directory: src/expat/expat
+      run: ./buildconf.sh
+
+    - name: Create build directory
+      run: mkdir build
+
+    - name: Configure CMake
+      working-directory: build
+      run: |
+        cmake \
+        -DANDROID_ABI=${{ matrix.ANDROID_ABI }} \
+        -DANDROID_PLATFORM=android-21 \
+        -DANDROID_NDK=${ANDROID_NDK_ROOT} \
+        -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake \
+        -G Ninja \
+        ..
+
+    - name: Build
+      working-directory: build
+      run: cmake --build .
