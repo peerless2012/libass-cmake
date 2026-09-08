@@ -9,6 +9,7 @@ ExternalProject_Add(ep_unibreak
         --prefix=<INSTALL_DIR>
         --enable-static
         --disable-shared
+        --with-pic
     BUILD_COMMAND make
     INSTALL_COMMAND make install
 )

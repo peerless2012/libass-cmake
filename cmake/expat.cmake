@@ -9,6 +9,7 @@ ExternalProject_Add(ep_expat
         --prefix=<INSTALL_DIR>
         --enable-static
         --disable-shared
+        --with-pic
         --without-tests
         --without-docbook
     BUILD_COMMAND make

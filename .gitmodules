@@ -1,7 +1,6 @@
 [submodule "src/unibreak"]
 	path = src/unibreak
 	url = https://github.com/adah1972/libunibreak.git
-	branch = libunibreak_6_1
 [submodule "src/harfbuzz"]
 	path = src/harfbuzz
 	url = https://github.com/harfbuzz/harfbuzz.git

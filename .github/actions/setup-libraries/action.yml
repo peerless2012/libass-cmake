@@ -8,7 +8,7 @@ runs:
   using: "composite"
   steps:
     - name: Install dependencies
-      run: sudo apt install gperf gettext autopoint
+      run: sudo apt install gperf gettext autopoint nasm
       shell: bash
 
     - name: Running autogen.sh in unibreak

@@ -1,4 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
+
+if(NOT CMAKE_ANDROID_ARCH STREQUAL "arm")
+    set(ASS_ASM_ARG "--enable-asm")
+else()
+    # libass doesn't support arm 32 bits asm.
+    set(ASS_ASM_ARG "--disable-asm")
+endif()
+
 ExternalProject_Add(ep_ass
     DEPENDS ep_fontconfig ep_harfbuzz ep_freetype ep_fribidi ep_unibreak
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}
@@ -11,8 +19,10 @@ ExternalProject_Add(ep_ass
         --prefix=<INSTALL_DIR>
         --enable-static
         --disable-shared
+        --with-pic
         --enable-fontconfig
         --enable-libunibreak
+        ${ASS_ASM_ARG}
         --srcdir=<SOURCE_DIR>/<SOURCE_SUBDIR>
     BUILD_COMMAND make
     INSTALL_COMMAND make install
