@@ -9,12 +9,13 @@ on:
 
 jobs:
   run-tests:
-    name: "Test (${{ matrix.ANDROID_ABI }})"
+    name: "Test (${{ matrix.ANDROID_ABI }}, ${{ matrix.CMAKE_BUILD_TYPE }})"
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         ANDROID_ABI: ["armeabi-v7a", "arm64-v8a", "x86", "x86_64"]
+        CMAKE_BUILD_TYPE: ["Debug", "RelWithDebInfo"]
 
     steps:
     - name: Checkout code
@@ -38,6 +39,7 @@ jobs:
         -DANDROID_PLATFORM=android-21 \
         -DANDROID_NDK=${ANDROID_NDK_ROOT} \
         -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cmake \
+        -DCMAKE_BUILD_TYPE=${{ matrix.CMAKE_BUILD_TYPE }} \
         -G Ninja \
         ..
 
@@ -47,7 +49,7 @@ jobs:
 
     - uses: actions/upload-artifact@v7
       with:
-        name: build-${{ matrix.ANDROID_ABI }}
+        name: build-${{ matrix.ANDROID_ABI }}-${{ matrix.CMAKE_BUILD_TYPE }}
         path: |
           build/etc/
           build/include/
