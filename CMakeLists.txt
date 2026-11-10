@@ -43,6 +43,11 @@ set(PLATFORM_COMPILE_ENV_FLAGS
         "LDFLAGS=${CMAKE_SHARED_LINKER_FLAGS} ${CMAKE_SHARED_LINKER_FLAGS_${BUILD_TYPE_UPPER}} --target=${CMAKE_C_COMPILER_TARGET}"
 )
 
+# Pass these to configure as `VAR=VALUE` arguments, not as environment
+# variables. The generated Makefiles contain automake rebuild rules which may
+# re-run configure through `config.status --recheck` (e.g. after a submodule
+# update changes Makefile.am/configure.ac). The recheck only replays the
+# recorded command line arguments, so environment variables would be lost.
 set(PLATFORM_CONFIGURE_ENV ${PLATFORM_COMPILE_ENV_CMDS}
         ${PLATFORM_COMPILE_ENV_FLAGS})
 

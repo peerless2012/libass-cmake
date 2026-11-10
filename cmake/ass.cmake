@@ -13,7 +13,6 @@ ExternalProject_Add(ep_ass
     SOURCE_SUBDIR "src/ass"
     INSTALL_DIR ${CMAKE_BINARY_DIR}
     CONFIGURE_COMMAND
-        ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
         <SOURCE_DIR>/<SOURCE_SUBDIR>/configure
         ${PLATFORM_BUILD_AND_HOST} ${CONFIGURE_VERBOSE_ARG}
         --prefix=<INSTALL_DIR>
@@ -24,6 +23,7 @@ ExternalProject_Add(ep_ass
         --enable-libunibreak
         ${ASS_ASM_ARG}
         --srcdir=<SOURCE_DIR>/<SOURCE_SUBDIR>
+        ${PLATFORM_CONFIGURE_ENV}
     BUILD_COMMAND make
     INSTALL_COMMAND make install
 )

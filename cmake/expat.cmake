@@ -4,7 +4,6 @@ ExternalProject_Add(ep_expat
     SOURCE_SUBDIR "src/expat/expat"
     INSTALL_DIR ${CMAKE_BINARY_DIR}
     CONFIGURE_COMMAND
-        ${CMAKE_COMMAND} -E env ${PLATFORM_CONFIGURE_ENV}
         <SOURCE_DIR>/<SOURCE_SUBDIR>/configure ${PLATFORM_BUILD_AND_HOST}
         --prefix=<INSTALL_DIR>
         --enable-static
@@ -12,6 +11,7 @@ ExternalProject_Add(ep_expat
         --with-pic
         --without-tests
         --without-docbook
+        ${PLATFORM_CONFIGURE_ENV}
     BUILD_COMMAND make
     INSTALL_COMMAND make install
 )
